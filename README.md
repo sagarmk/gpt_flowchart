@@ -2,7 +2,7 @@
 
 Graphviz Flowchart Tool is a simple and user-friendly application for creating flowcharts using Graphviz's DOT language. The application allows you to write DOT code, generate an SVG flowchart from the code, and save or copy the SVG to your clipboard.
 
-![Screenshot of the Graphviz Flowchart Tool](qt_graphviz.png)
+![Screenshot of the Graphviz Flowchart Tool](images/qt_graphviz.png)
 
 ## Installation
 
