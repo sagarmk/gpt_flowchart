@@ -5,6 +5,8 @@ from PyQt5.QtCore import Qt, QProcess
 from PyQt5.QtSvg import QGraphicsSvgItem
 import os
 import tempfile  
+from open.gpt import GPT
+
 
 class MainWindow(QMainWindow):
     """
@@ -20,7 +22,10 @@ class MainWindow(QMainWindow):
         Initializes the UI components and their layout.
         """
 
-        self.setWindowTitle("Graphviz Flowchart Tool")
+        self.setWindowTitle("GPT Flowchart Tool")
+
+        # Set up label for input text area
+        input_label = QLabel("What is the flowchart about:")
 
         # Set up DOT code editor and flowchart display
         self.dot_editor = QPlainTextEdit()
@@ -33,7 +38,7 @@ class MainWindow(QMainWindow):
         splitter = QSplitter(Qt.Horizontal)
         splitter.addWidget(self.dot_editor)
         splitter.addWidget(self.flowchart_view)
-        splitter.setSizes([400, 400])
+        splitter.setSizes([200, 600])
 
         # Set up buttons and their layout
         self.build_button = QPushButton("Build Flowchart")
@@ -61,6 +66,17 @@ class MainWindow(QMainWindow):
             """
 
             dot_code = self.dot_editor.toPlainText()
+            gptquery = GPT()
+            system_message = "You are graphviz bot, who responds only with graphviz code."
+            prompt = f"Based on below provided text query design a graphviz flowchart code, try to make a vertical flowchart. Query:{dot_code}"
+            response = gptquery.request_gpt(system_message, prompt)
+            
+            if 'content' in response:
+                dot_code = response['content']
+            else:
+                dot_code = None
+
+
 
             # Write DOT code to a temporary file
             with tempfile.NamedTemporaryFile('w', delete=False, suffix='.dot') as dot_temp:

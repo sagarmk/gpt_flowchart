@@ -1,26 +1,34 @@
-# Graphviz Flowchart Tool
+# GPT Flowchart Tool
 
-Graphviz Flowchart Tool is a simple and user-friendly application for creating flowcharts using Graphviz's DOT language. The application allows you to write DOT code, generate an SVG flowchart from the code, and save or copy the SVG to your clipboard.
+GPT Flowchart Tool is a simple and user-friendly application for creating flowcharts. It takes in description of flowchart and creates flowcharts based on those description.
 
-![Screenshot of the Graphviz Flowchart Tool](images/qt_graphviz.png)
+Add GPT token at:
+'''/src/config/config.ini'''
+
+![Screenshot of the Graphviz Flowchart Tool](images/gpt_svg.png)
 
 ## Installation
 
-1. Ensure you have [Python 3](https://www.python.org/downloads/) installed on your system.
-2. Install Graphviz, if you haven't already, using the instructions for your operating system from the [Graphviz website](https://graphviz.org/download/).
-3. Clone this repository or download the source code.
-4. Navigate to the repository or source code folder and install the required dependencies using the following command:
+Install graphviz:
+
+Ubuntu: 
+Run ./install_graphviz.sh
+
+Windows:
+Download graphviz: https://graphviz.org/download/
+1. Search for "Environment Variables" in the Start menu and open the "Edit the system environment variables" option.
+2. Click on the "Environment Variables" button at the bottom of the System Properties window.
+3. Under "System Variables", find the "Path" variable and click "Edit".
+4. Click "New" and add the path to the "bin" directory of your Graphviz installation (e.g. "C:\Program Files\Graphviz\bin").
+5. Click "OK" to close all windows and save the changes.
 
 "pip install -r requirements.txt"
 
 ## Usage
 
-1. Run the `main.py` script:
-"python main.py"
-2. The Graphviz Flowchart Tool window will appear. Enter your DOT code into the left pane.
-3. Click the "Build Flowchart" button to generate the flowchart in the right pane.
-4. To copy the SVG code to your clipboard, click the "Copy SVG" button.
-5. To save the generated SVG as a file, click the "Save SVG" button and choose a location.
+1. Install "make install"
+2. Run tool using "make run"
+3. Add description in left text input box and hit build flowchart
 
 ## License
 
